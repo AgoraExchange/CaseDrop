@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+  <title>Case Drop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splashScreen" class="splash-screen">
+    <div class="splash-content">
+      <img src="sinnerslogo.png" alt="Sinners Logo" class="splash-logo" />
+      <h1 class="splash-title">Case Drop</h1>
+      <p class="splash-tagline">Fast, clean reporting for Investigations.</p>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" class="app hidden">
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="topbar-badge">Investigations</span>
+      </div>
+
+      <div class="topbar-center">
+        <h1>Case Drop</h1>
+      </div>
+
+      <div class="topbar-right">
+        <div class="contact-menu-wrapper">
+          <button id="contactBtn" class="contact-btn" type="button" aria-expanded="false">
+            Contact
+            <span class="contact-caret">▾</span>
+          </button>
+
+          <div id="contactDropdown" class="contact-dropdown hidden">
+            <div class="contact-dropdown-header">
+              <span>Contact Investigations</span>
+            </div>
+
+            <div class="contact-list" id="contactList">
+              <!-- Populated by JS -->
+            </div>
+
+            <button id="emailAllBtn" class="dropdown-action-btn" type="button">
+              Email All
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-shell">
+      <section class="hero-card glass-card">
+        <div class="hero-text">
+          <p class="eyebrow">Case intake</p>
+          <h2>Ticketing made simple.</h2>
+          <p>
+            Submit suspicious activity, time fraud, property damage, or other concerns in one streamlined report. An investigator will take the case. 
+          </p>
+        </div>
+      </section>
+
+      <section class="form-card glass-card">
+        <div class="card-header">
+          <div>
+            <p class="eyebrow">Start a case</p>
+            <h3>Report a new case</h3>
+          </div>
+          <div class="status-pill">Live Intake</div>
+        </div>
+
+        <form id="caseForm" class="case-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="reporterName">Full Name</label>
+              <input
+                id="reporterName"
+                name="reporterName"
+                type="text"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="companyEmail">Company Email</label>
+              <input
+                id="companyEmail"
+                name="companyEmail"
+                type="email"
+                placeholder="name@cagreatamerica.com"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="employeeId">Employee ID #</label>
+              <input
+                id="employeeId"
+                name="employeeId"
+                type="text"
+                placeholder="Enter employee ID"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="caseType">Case Type</label>
+              <select id="caseType" name="caseType" required>
+                <option value="" disabled selected>Select a case type</option>
+                <option value="Suspicious Activity">Suspicious Activity</option>
+                <option value="Time Fraud">Time Fraud</option>
+                <option value="Damage to Property">Damage to Property</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field field-full">
+            <label for="statement">Statement</label>
+            <textarea
+              id="statement"
+              name="statement"
+              rows="8"
+              placeholder="Provide a detailed statement of what occurred..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="action-row">
+            <div class="form-note">
+              Reports are usually answered by email within 24 hours.
+            </div>
+            <button id="submitBtn" class="submit-btn" type="submit">
+              Report Case
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
